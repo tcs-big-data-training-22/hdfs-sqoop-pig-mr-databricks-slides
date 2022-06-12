@@ -1,0 +1,8 @@
+# DS_store (mac only)
+**/*.DS_store
+
+# Execution Result (dist)
+dist/*
+
+# specific data due to file size (Please download by yourself following my guide)
+data/ml*

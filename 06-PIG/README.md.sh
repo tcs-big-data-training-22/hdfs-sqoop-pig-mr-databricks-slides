@@ -1,6 +1,6 @@
 - Open Hadoop CLI and run below commands
 ```
-cd ~/Day-2/06-PIG
+cd ~/hdfs-sqoop-pig-mr-databricks-slides/06-PIG
 wget https://sadatashareagsparkml.blob.core.windows.net/hadoop-bangalore/ml-100k.zip
 unzip -n ml-100k.zip
 hadoop fs -put ml-100k
@@ -14,27 +14,27 @@ pig
 
 ```
 ratings = LOAD 'ml-100k/u.data' AS (userID:int, movieID:int, rating:int, ratingTime:int);
-DUMP ratings;
+#DUMP ratings;
 ```
 
 ```
 metadata = LOAD 'ml-100k/u.item' USING PigStorage('|')AS (movieID:int, movieTitle:chararray, releaseDate:chararray, videoRelease:chararray, imdbLink:chararray);
-DUMP metadata;
+#DUMP metadata;
 ```
 
 ```
 nameLookup = FOREACH metadata GENERATE movieID, movieTitle, ToUnixTime(ToDate(releaseDate, 'dd-MMM-yyyy')) AS releaseTime;
-DUMP nameLookup;
+#DUMP nameLookup;
 ```
 
 ```
 ratingsByMovie = GROUP ratings BY movieID;
-DUMP ratingsByMovie;
+#DUMP ratingsByMovie;
 ```
 
 ```
 avgRatings = FOREACH ratingsByMovie GENERATE group AS movieID, AVG(ratings.rating) AS avgRating;
-DUMP avgRatings;
+#DUMP avgRatings;
 ```
 
 ```
@@ -45,7 +45,7 @@ DESCRIBE avgRatings;
 
 ```
 fiveStarMovies = FILTER avgRatings BY avgRating > 4.0;
-DUMP fiveStarMovies;
+#DUMP fiveStarMovies;
 ```
 
 - JOIN
@@ -54,7 +54,7 @@ DESCRIBE fiveStarMovies;
 DESCRIBE nameLookup;
 fiveStarsWithData = JOIN fiveStarMovies BY movieID, nameLookup BY movieID;
 DESCRIBE fiveStarsWithData;
-DUMP fiveStarsWithData
+#DUMP fiveStarsWithData
 ```
 
 - ORDER BY

@@ -2,7 +2,7 @@
 1. Stop mysql:
 ```
 sudo systemctl stop mysqld
-``````
+```
 
 
 2. Set the mySQL environment option
@@ -22,17 +22,17 @@ mysql -u root
 
 5. Update the root user password with these mysql commands
 ```
-mysql> UPDATE mysql.user SET
+UPDATE mysql.user SET
 authentication_string =
 PASSWORD('hadoop') WHERE User = 'root' AND Host = 'localhost';
 ```
 
 ```
-mysql> FLUSH PRIVILEGES;
+FLUSH PRIVILEGES;
 ```
 
 ```
-mysql> quit
+quit
 ```
 
 
@@ -54,4 +54,9 @@ sudo systemctl start mysqld
 Try to login using your new password:
 ```
 mysql -u root -p
+```
+
+Exit
+```
+\q
 ```

@@ -3,11 +3,21 @@
 > **NOTE**: Use the command  hadoop fs -rm -r /etl/input/* to clear the HDFS data, for a clean run on the hands-on excercises.
 
 > **NOTE**: Import excercise seed data and users by login to mysql with
-> '$ mysql -u root -p' password is hadoop, after login execute mysql> source /path/to/file/mysql.credentials.sql and mysql> source /path/to/file/mysql.tables.sql
+
+```
+##password is hadoop
+mysql -u root -p
+```
+
+```
+source sql/mysql.credentials.sql
+source sql/mysql.tables.sql
+\q
+```
 
 ## Simple import
 Sqoop provides import tools to import from hadoop DB to HDFS, Sqoop by default uses JDBC for connecting to the target DB, hence any DB with a JDBC driver can be used with sqoop.
-cd ~/Day-2/03-Sqoop
+cd ~/hdfs-sqoop-pig-mr-databricks-slides/03-Sqoop
 ls
 
 sqoop import \

@@ -1,0 +1,9 @@
+<?xml version="1.0" encoding="utf-8"?>
+<xmlroot xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance">
+ <pather guid="00011a0330-432432-4324-434324-4324353245sfds">
+     <ticketsection>
+       <attribute value="EN" name="DefaultLanguage"/>
+       <attribute value="New Value" name="SomeValues"/>
+      </ticketsection>
+  </pather>
+</xmlroot>
